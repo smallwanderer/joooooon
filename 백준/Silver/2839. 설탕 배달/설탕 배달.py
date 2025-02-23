@@ -1,15 +1,10 @@
 n = int(input())
 
-def sugar_delivery(n):
-  result = 0
+def sugar_delivery2(n):
+    for i in range(n//5, -1, -1):
+        leftover = n-(i*5)
+        if leftover % 3 == 0:
+            return leftover//3 + i
+    return -1
 
-  while True:
-    if n < 0:
-      return -1
-    if n % 5 == 0:
-      result += n // 5
-      return result
-    n -= 3
-    result += 1
-
-print(sugar_delivery(n))
+print(sugar_delivery2(n))
