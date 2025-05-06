@@ -1,13 +1,19 @@
 import sys
-sys.setrecursionlimit(1000000)
 
 nodes_count, edges_count = map(int, sys.stdin.readline().split())
 parent_node = {x+1 : x+1 for x in range(nodes_count)}
 
 def find(node):
-  if parent_node[node] != node:
-    parent_node[node] = find(parent_node[node])
-  return parent_node[node]
+    root = node
+    while parent_node[root] != root:
+        root = parent_node[root]
+        
+    while node != root:
+        parent = parent_node[node]
+        parent_node[node] = root
+        node = parent
+
+    return root
 
 def union(node1, node2):
   node1_root = find(node1)
