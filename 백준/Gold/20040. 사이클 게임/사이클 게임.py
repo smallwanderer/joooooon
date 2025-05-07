@@ -14,13 +14,14 @@ def cycle_detection(node1, node2):
 
   if node1_root == node2_root:
     return True
-  if rank[node1_root] < rank[node2_root]:
-    parent[node1_root] = node2_root
-  elif rank[node1_root] > rank[node2_root]:
-    parent[node2_root] = node1_root
-  else:
-    parent[node2_root] = node1_root
-    rank[node1_root] += 1
+  parent[node2_root] = node1_root
+  # if rank[node1_root] < rank[node2_root]:
+  #   parent[node1_root] = node2_root
+  # elif rank[node1_root] > rank[node2_root]:
+  #   parent[node2_root] = node1_root
+  # else:
+  #   parent[node2_root] = node1_root
+  #   rank[node1_root] += 1
   return False
 
 n, m = map(int, sys.stdin.readline().split())
