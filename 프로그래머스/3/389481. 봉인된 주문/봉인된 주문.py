@@ -15,12 +15,12 @@ def base_to_num(char):
 #print(base_to_num('az'))
 
 def num_to_base(num):
-    result = []
+    result = ''
     while num > 0:
         char = chr(97+((num-1) % 26))
-        result.append(char)
+        result = char + result
         num = (num-1) // 26
-    return ''.join(reversed(result))
+    return result
 #print(num_to_base(26))
 
 def solution(n, bans):
